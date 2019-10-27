@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d223b69ece297174d80ca8bc62aaa32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 0
-  HP: 3
+  maxHP: 10
+  HP: 10
   status: 0
 --- !u!114 &-6602325118775021842
 MonoBehaviour:
@@ -178,10 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ccc489a42de8e458c7e3791bbf5b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.1
-  numOfGuns: 3
-  distanceBetweenGuns: 0.5
+  fireRate: 0.2
+  numOfGuns: 1
+  distanceBetweenGuns: 0
   angleBetweenGuns: 0
+  setMoveForward: 1
   projectile: {fileID: 7629695580304982668}
 --- !u!1001 &7008088590295357730
 PrefabInstance:
@@ -190,16 +191,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6497492104042276247}
     m_Modifications:
-    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
-        type: 3}
-      propertyPath: m_Name
-      value: Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2931871985737608060, guid: 6611c80347b03084fafc189fd6e9b175,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -253,6 +244,16 @@ PrefabInstance:
     - target: {fileID: 2931871985737608060, guid: 6611c80347b03084fafc189fd6e9b175,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
+        type: 3}
+      propertyPath: m_Name
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

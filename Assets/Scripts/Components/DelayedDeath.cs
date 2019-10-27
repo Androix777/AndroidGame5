@@ -7,7 +7,7 @@ public class DelayedDeath : MonoBehaviour
     public float time;
     void Start()
     {
-        Functions.DestroyWithDeathEffects(gameObject, time);
+        Functions.DestroyWithDeathEffects(gameObject, time, DeathCause.Time);
     }
 
     void Update()

@@ -33,7 +33,7 @@ public class DamageDealer : MonoBehaviour
         if (target.GetComponent<Life>() != null && target.GetComponent<Life>().status != status)
         {
             target.GetComponent<Life>().DealDamage(damage);
-            if(destroyAfterDealDamage) Functions.DestroyWithDeathEffects(gameObject);
+            if(destroyAfterDealDamage) Functions.DestroyWithDeathEffects(gameObject, deathCause : DeathCause.Time);
         }
     }
 }

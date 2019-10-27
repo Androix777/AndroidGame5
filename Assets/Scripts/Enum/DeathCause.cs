@@ -1,5 +1,7 @@
 ﻿public enum DeathCause
 {
+    All,
     Time,
-    Сrashed
+    Сollision,
+    Kill
 }

@@ -5,11 +5,11 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     
-    public float fireRate;
+    public float fireRate =0.5f;
     public int numOfGuns = 1;
     public float distanceBetweenGuns;
     public float angleBetweenGuns;
-    public bool setMoveForward = false;
+    public bool setMoveForward = true;
     
     [SerializeField] private GameObject projectile;
     private GameObject lastProjectile;

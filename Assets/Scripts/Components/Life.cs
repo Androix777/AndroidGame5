@@ -24,7 +24,7 @@ public class Life : MonoBehaviour
         HP -= damage;
         if (HP <= 0 && !dead)
         {
-            Functions.DestroyWithDeathEffects(gameObject);
+            Functions.DestroyWithDeathEffects(gameObject, deathCause : DeathCause.Kill);
             dead = true;
         }
     }
