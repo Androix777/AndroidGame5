@@ -12,7 +12,7 @@ public class Shooter : MonoBehaviour
     public bool setMoveForward = true;
     public float forwardOffset = 0;
     public float angleOffset = 0;
-    
+    public bool autoShooting = false;
     [SerializeField] private GameObject projectile;
     private GameObject lastProjectile;
     private Vector2 moveVector;
@@ -20,7 +20,10 @@ public class Shooter : MonoBehaviour
 
     void Start()
     {
-
+        if (autoShooting)
+        {
+            InvokeRepeating("AutoShoot", 0f, fireRate);
+        }
     }
 
     void Update()
@@ -51,5 +54,10 @@ public class Shooter : MonoBehaviour
     public void Shoot(Vector2 vector, bool must = false)
     {
         Shoot(Vector2.SignedAngle(Vector2.up, vector), must);
+    }
+
+    private void AutoShoot()
+    {
+        Shoot(transform.TransformPoint(Vector2.up) - transform.position, true);
     }
 }
