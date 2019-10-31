@@ -49,6 +49,11 @@ public class Generator : MonoBehaviour
 
     public void GenerationMap(int floorWidth, int floorLenght, int numberRooms, int Seed, LevelType LevelType)
     {
+        this.floorWidth = floorWidth;
+        this.floorLenght = floorLenght;
+        this.numberRooms = numberRooms;
+        this.Seed = Seed;
+        this.LevelType = LevelType;
         GenerationMap();
     }
 
