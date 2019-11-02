@@ -20,7 +20,7 @@ public class Map : MonoBehaviour
     {
         if (generator != null && Hero != null)
         {
-            if (generator.CheackPositionType(generator.GetRooms(), pos))
+            if (generator.GetLayout(generator.GetRooms(), pos))
             {
                 if (Hero != null && generator.GetGameObjectsRooms()[(int)pos.x, (int)pos.y] != null)
                 {
@@ -46,7 +46,7 @@ public class Map : MonoBehaviour
                 }
             }
            
-            if (pos != Vector2.positiveInfinity && generator.CheackPositionType(generator.GetRooms(), pos))
+            if (pos != Vector2.positiveInfinity && generator.GetLayout(generator.GetRooms(), pos))
             {
                 if (Hero != null && generator.GetGameObjectsRooms()[(int)pos.x, (int)pos.y] != null)
                 {
@@ -80,7 +80,7 @@ public class Map : MonoBehaviour
                     break;
             }
 
-            if (generator.CheackPositionType(generator.GetRooms(), position))
+            if (generator.GetLayout(generator.GetRooms(), position))
             {
                 if (Hero != null && generator.GetGameObjectsRooms()[(int)position.x, (int)position.y] != null)
                 {

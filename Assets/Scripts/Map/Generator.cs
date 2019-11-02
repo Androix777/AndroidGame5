@@ -83,17 +83,17 @@ public class Generator : MonoBehaviour
             }
             else
             {
-                Vector2 pos = GenPos(Map, Last.position);
+                Vector2 pos = GenNextPosition(Map, Last.position);
                 if (pos == (-Vector2.one * 10000))
                 {
                     do
                     {
-                        Last = getLast(roomTypes, Map);
+                        Last = GetLast(roomTypes, Map);
                         if (Last == null)
                         {
                             break;
                         }
-                        pos = GenPos(Map, Last.position);
+                        pos = GenNextPosition(Map, Last.position);
                     }
                     while (pos == (-Vector2.one * 10000));
                 }
@@ -114,12 +114,12 @@ public class Generator : MonoBehaviour
         }
         
         end.type = (RoomType.End);
-        SetTypeRooms(Map);
+        SetAllLayouts(Map);
         CreateRooms(Map);
 
     }
 
-    public Room[,] SetTypeRooms(Room [,] map)
+    public Room[,] SetAllLayouts(Room [,] map)
     {
         for (int i = 0;i < floorWidth;i++)
         {
@@ -127,36 +127,36 @@ public class Generator : MonoBehaviour
             {
                 if (map[i,j] != null)
                 {
-                    map[i, j].posType = (GetTypeRoom(map, i, j));
+                    map[i, j].posType = (GetLayout(map, i, j));
                 }
             }
         }
         return map;
     }
 
-    public TypePos GetTypeRoom(Room[,] map, int x ,int y)
+    public TypePos GetLayout(Room[,] map, int x ,int y)
     {
-        bool[] side = new bool[4] { false,false,false,false};
+        bool[] side = new bool[4] {false, false, false, false};
         int col = -1;
-        if (CheackPositionType(map, new Vector2(x,y) + Vector2.up))
+        if (GetLayout(map, new Vector2(x,y) + Vector2.up))
         {
             col++;
             side[0] = true;
         }
 
-        if (CheackPositionType(map, new Vector2(x, y) + Vector2.right))
+        if (GetLayout(map, new Vector2(x, y) + Vector2.right))
         {
             col++;
             side[1] = true;
         }
 
-        if (CheackPositionType(map, new Vector2(x, y) + Vector2.down))
+        if (GetLayout(map, new Vector2(x, y) + Vector2.down))
         {
             col++;
             side[2] = true;
         }
 
-        if (CheackPositionType(map, new Vector2(x, y) + Vector2.left))
+        if (GetLayout(map, new Vector2(x, y) + Vector2.left))
         {
             col++;
             side[3] = true;
@@ -170,12 +170,12 @@ public class Generator : MonoBehaviour
         return 0;
     }
 
-    public Room getLast(List<Room> rooms,Room[,] Map)
+    public Room GetLast(List<Room> rooms,Room[,] Map)
     {
         Room Last = rooms[rooms.Count - 1];
         while (true)
         {
-            Vector2 pos = GenPos(Map, Last.position);
+            Vector2 pos = GenNextPosition(Map, Last.position);
             if (pos == (-Vector2.one * 10000))
             {
                 if (rooms.Count > 1)
@@ -189,7 +189,7 @@ public class Generator : MonoBehaviour
         }        
     }
 
-    public Vector2 GenPos(Room[,] map, Vector2 lastPos)
+    public Vector2 GenNextPosition(Room[,] map, Vector2 lastPos)
     {
         int startSide = Random.Range(0, 4);
         for (int i = 0; i < 4;i++)
@@ -198,31 +198,31 @@ public class Generator : MonoBehaviour
             switch (side)
             {
                 case 0:
-                    if (CheackPosition(map, lastPos + Vector2.up))
+                    if (CheckRoomExist(map, lastPos + Vector2.up))
                     {
                         return lastPos + Vector2.up;
                     }
                     break;
                 case 1:
-                    if (CheackPosition(map, lastPos + Vector2.right))
+                    if (CheckRoomExist(map, lastPos + Vector2.right))
                     {
                         return lastPos + Vector2.right;
                     }
                     break;
                 case 2:
-                    if (CheackPosition(map, lastPos + Vector2.down))
+                    if (CheckRoomExist(map, lastPos + Vector2.down))
                     {
                         return lastPos + Vector2.down;
                     }
                     break;
                 case 3:
-                    if (CheackPosition(map, lastPos + Vector2.left))
+                    if (CheckRoomExist(map, lastPos + Vector2.left))
                     {
                         return lastPos + Vector2.left;
                     }
                     break;
                 default:
-                    if (CheackPosition(map, lastPos + Vector2.up))
+                    if (CheckRoomExist(map, lastPos + Vector2.up))
                     {
                         return -Vector2.one * 10000;
                     }
@@ -232,16 +232,14 @@ public class Generator : MonoBehaviour
         return - Vector2.one * 10000;
     }
 
-    public bool CheackPosition(Room[,] map, Vector2 lastPos)
+    public bool CheckRoomExist(Room[,] map, Vector2 lastPos)
     {
-        
         if (map != null && lastPos != null)
         {
             if (lastPos.y < floorLenght && lastPos.y >= 0 && lastPos.x < floorWidth && lastPos.x >= 0)
             {
                 if (map[(int)lastPos.x, (int)lastPos.y] == null)
                 {
-
                     return true;
                 }
             }
@@ -249,7 +247,7 @@ public class Generator : MonoBehaviour
         return false;
     }
 
-    public bool CheackPositionType(Room[,] map, Vector2 lastPos)
+    public bool GetLayout(Room[,] map, Vector2 lastPos)
     {
         if (map != null && lastPos != null)
         {
