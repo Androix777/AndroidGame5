@@ -6,6 +6,7 @@ public class Teleport : MonoBehaviour
 {
     [SerializeField] RoomView Room;
     [SerializeField] Side side;
+    [SerializeField] Vector2 SpawnPoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

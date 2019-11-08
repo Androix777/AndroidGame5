@@ -11,7 +11,7 @@ public enum TypePos { One, Two, Three, Four}
 
 public class Generator : MonoBehaviour
 {
-    const float scale = 3;
+    const float scale = 10;
 
     [SerializeField] GameObject Prot;
     [SerializeField] int floorWidth = 0, floorLenght = 0;
@@ -44,7 +44,7 @@ public class Generator : MonoBehaviour
 
     private void Start()
     {
-        GenerationMap();
+        
     }
 
     public void GenerationMap(int floorWidth, int floorLenght, int numberRooms, int Seed, LevelType LevelType)
@@ -97,7 +97,7 @@ public class Generator : MonoBehaviour
                     }
                     while (pos == (-Vector2.one * 10000));
                 }
-                Debug.Log(pos);
+
                 Map[(int)pos.x, (int)pos.y] = new Room();
                 Map[(int)pos.x, (int)pos.y].position = (pos);
                 Map[(int)pos.x, (int)pos.y].type = (RoomType.Normal);
@@ -274,6 +274,7 @@ public class Generator : MonoBehaviour
                     GameObject obj = Instantiate(Prot);
                     obj.transform.position = new Vector3(i * scale, j * scale);
                     obj.GetComponent<RoomView>().SetStat(map[i, j]);
+                    obj.transform.SetParent(transform);
                     MapObj[i, j] = obj;
                 }
                 

@@ -44,15 +44,15 @@ public class RoomView : MonoBehaviour
         position = room.position;
         posType = room.posType;
 
-        if (RoomType == RoomType.Start)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(0, 0, 1);
-        }
+        //if (RoomType == RoomType.Start)
+        //{
+        //    GetComponent<SpriteRenderer>().color = new Color(0, 0, 1);
+        //}
 
-        if (RoomType == RoomType.End)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-        }
+        //if (RoomType == RoomType.End)
+        //{
+        //    GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+        //}
     }
 
     public RoomType GetRoomType()
