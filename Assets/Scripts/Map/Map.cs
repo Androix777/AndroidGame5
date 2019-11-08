@@ -13,7 +13,11 @@ public class Map : MonoBehaviour
 
     private void Start()
     {
-        
+        generator.GenerationMap();
+        if (Hero != null)
+        {
+            Teleport(RoomType.Start, Hero);
+        }
     }
 
     public void Teleport(Vector2 pos, GameObject Hero)
@@ -39,20 +43,17 @@ public class Map : MonoBehaviour
             Vector2 pos = Vector2.positiveInfinity;
             foreach (GameObject room in generator.GetGameObjectsRooms())
             {
-                if (room.GetComponent<RoomView>().GetRoomType() == type)
+                if (room != null && room.GetComponent<RoomView>().GetRoomType() == type)
                 {
+                    
                     pos = room.transform.position;
+                    if (Hero != null)
+                    {
+                        Hero.transform.position = pos;
+                        RoomWithHero = room;
+                        PosHero = new Vector2((int)pos.x, (int)pos.y);
+                    }
                     break;
-                }
-            }
-           
-            if (pos != Vector2.positiveInfinity && generator.GetLayout(generator.GetRooms(), pos))
-            {
-                if (Hero != null && generator.GetGameObjectsRooms()[(int)pos.x, (int)pos.y] != null)
-                {
-                    Hero.transform.position = generator.GetGameObjectsRooms()[(int)pos.x, (int)pos.y].transform.position;
-                    PosHero = new Vector2((int)pos.x, (int)pos.y);
-                    RoomWithHero = generator.GetGameObjectsRooms()[(int)pos.x, (int)pos.y];
                 }
             }
         }
