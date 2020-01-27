@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7292895270473703792}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165807126046176306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.92, y: -2.82, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3434876665892506973}
@@ -157,7 +157,10 @@ MonoBehaviour:
   numOfGuns: 3
   distanceBetweenGuns: 0
   angleBetweenGuns: 10
-  setMoveForward: 0
+  setMoveForward: 1
+  forwardOffset: 0
+  angleOffset: 0
+  autoShooting: 0
   projectile: {fileID: 1132827847643479439}
 --- !u!114 &8491377522346953797
 MonoBehaviour:
@@ -206,6 +209,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 165807126046176297}
     m_Modifications:
+    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
+        type: 3}
+      propertyPath: m_Name
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2931871985737608060, guid: 6611c80347b03084fafc189fd6e9b175,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -259,16 +272,6 @@ PrefabInstance:
     - target: {fileID: 2931871985737608060, guid: 6611c80347b03084fafc189fd6e9b175,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
-        type: 3}
-      propertyPath: m_Name
-      value: Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3427710424986556941, guid: 6611c80347b03084fafc189fd6e9b175,

@@ -47,6 +47,7 @@ public class Shooter : MonoBehaviour
                     moveVector = (lastProjectile.transform.TransformPoint(Vector2.up) - lastProjectile.transform.position).normalized;
                     lastProjectile.GetComponent<Move>().SetMove(moveVector);
                 }
+                lastProjectile.transform.parent = gameObject.transform.parent;
             }
         }
     }

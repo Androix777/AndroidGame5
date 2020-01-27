@@ -12,7 +12,7 @@ public class MoveAI : MonoBehaviour
 
     void Start()
     {
-        hero = GameObject.FindWithTag("Hero");
+        hero = GameObject.FindWithTag("Player");
         heroTransform = hero.GetComponent<Transform>();
         move = gameObject.GetComponent<Move>();
     }

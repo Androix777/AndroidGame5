@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -6602325118775021842}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Hero
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,9 @@ MonoBehaviour:
   distanceBetweenGuns: 0
   angleBetweenGuns: 0
   setMoveForward: 1
+  forwardOffset: 0
+  angleOffset: 0
+  autoShooting: 0
   projectile: {fileID: 7629695580304982668}
 --- !u!1001 &7008088590295357730
 PrefabInstance:
@@ -191,6 +194,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6497492104042276247}
     m_Modifications:
+    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
+        type: 3}
+      propertyPath: m_Name
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2931871985737608060, guid: 6611c80347b03084fafc189fd6e9b175,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,16 +257,6 @@ PrefabInstance:
     - target: {fileID: 2931871985737608060, guid: 6611c80347b03084fafc189fd6e9b175,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
-        type: 3}
-      propertyPath: m_Name
-      value: Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 622522342131080110, guid: 6611c80347b03084fafc189fd6e9b175,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

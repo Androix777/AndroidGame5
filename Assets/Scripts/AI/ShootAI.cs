@@ -14,7 +14,7 @@ public class ShootAI : MonoBehaviour
 
     void Start()
     {
-        hero = GameObject.FindWithTag("Hero");
+        hero = GameObject.FindWithTag("Player");
         heroTransform = hero.GetComponent<Transform>();
     }
 

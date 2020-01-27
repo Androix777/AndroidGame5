@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class Item : MonoBehaviour
+public class Exit : MonoBehaviour
 {
-    public string componentName;
     void Start()
     {
         
@@ -15,12 +13,13 @@ public class Item : MonoBehaviour
     {
         
     }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Player")
         {
-            col.gameObject.AddComponent(Type.GetType(componentName));
-            Destroy(gameObject);
+            Generator generator = gameObject.transform.parent.parent.gameObject.GetComponent<Generator>();
+            generator.NextLevel();
         }
     }
 }
