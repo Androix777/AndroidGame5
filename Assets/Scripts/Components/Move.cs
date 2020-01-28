@@ -5,6 +5,7 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+    public bool RotateSprite = false;
     public float speed;
 
     void Awake()
@@ -24,17 +25,5 @@ public class Move : MonoBehaviour
     public void SetMove(Vector2 vector)
     {
         rb2d.velocity = vector.normalized * speed;
-    }
-
-    public void SetMove(Vector2 vector, float newSpeed, bool rewrite)
-    {
-        if (rewrite)
-        {
-            rb2d.velocity = vector.normalized * newSpeed;
-        }
-        else
-        {
-            rb2d.velocity = vector.normalized * newSpeed * speed;
-        }
     }
 }
