@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HPUp : MonoBehaviour, IItem
+public class ItemHPUp : MonoBehaviour, IItem
 {
     void Start()
     {

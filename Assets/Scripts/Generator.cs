@@ -8,6 +8,7 @@ public class Generator : MonoBehaviour
     private GameObject room;
     private int levelNum;
     private LevelName levelName;
+    int NORMAL_NUM = 3, TREASURY_NUM = 1;
     void Start()
     {
         CreateRoom("Prefabs/Rooms/Normal/Room1");
@@ -46,7 +47,8 @@ public class Generator : MonoBehaviour
         switch(name)
         {
             case LevelName.Start:
-                return "Prefabs/Rooms/Normal/Room"+Random.Range(2,4).ToString();
+                if (level % 2 == 0) return "Prefabs/Rooms/Normal/Room"+Random.Range(1,NORMAL_NUM+1).ToString();
+                else return "Prefabs/Rooms/Treasury/Room"+Random.Range(1,TREASURY_NUM+1).ToString();
             default:
                 return "No";
         }

@@ -13,7 +13,7 @@ public class Shooter : MonoBehaviour
     public float forwardOffset = 0;
     public float angleOffset = 0;
     public bool autoShooting = false;
-    [SerializeField] private GameObject projectile;
+    public GameObject projectile;
     private GameObject lastProjectile;
     private Vector2 moveVector;
     private float lastShootTime = 0;
