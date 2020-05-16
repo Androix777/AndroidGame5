@@ -5,7 +5,6 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    public bool RotateSprite = false;
     public float speed;
 
     void Awake()
