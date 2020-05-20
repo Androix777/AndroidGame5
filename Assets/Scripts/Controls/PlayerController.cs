@@ -6,12 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(Shooter))]
 public class PlayerController : MonoBehaviour
 {
-    private Move moveComponent;
     [SerializeField] private Shooter shooter;
-
+    [SerializeField] private Move moveComponent;
     void Start()
     {
-        moveComponent = GetComponent<Move>();
+
     }
 
     void Update()

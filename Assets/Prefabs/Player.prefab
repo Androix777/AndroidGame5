@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: -6602325118775021842}
+  moveComponent: {fileID: -4949030435479752866}
 --- !u!114 &7496369623937720747
 MonoBehaviour:
   m_ObjectHideFlags: 0
